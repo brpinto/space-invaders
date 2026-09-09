@@ -1,6 +1,7 @@
 extends Area2D
 
 @export var speed: float = 200.0
+var can_shoot = true
 
 var beam = preload("res://Scenes/player-projectile.tscn")
 # Called when the node enters the scene tree for the first time.
@@ -23,5 +24,13 @@ func _input(event: InputEvent) -> void:
 			shoot()
 			
 func shoot():
-	var beam_instance = beam.instantiate()
-	get_parent().add_child(beam_instance)
+	if can_shoot:
+		var beam_instance = beam.instantiate()
+		get_parent().add_child(beam_instance)
+		can_shoot = false
+		$Timer.start()
+
+
+func _on_timer_timeout() -> void:
+	can_shoot = true
+	pass # Replace with function body.

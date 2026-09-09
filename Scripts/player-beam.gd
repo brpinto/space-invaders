@@ -10,6 +10,7 @@ signal shelter_fired
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	add_to_group("beams")
 	var laser = get_parent().get_node("Laser")
 	position = laser.position
 	pass # Replace with function body.
@@ -22,4 +23,6 @@ func _process(delta: float) -> void:
 func _on_area_shape_entered(_area_rid: RID, area: Area2D, _area_shape_index: int, _local_shape_index: int) -> void:
 	if not area.name.contains("Laser"):
 		self.queue_free()
+	if area.name.contains("Shelter"):
+		shelter_fired.emit()
 	pass # Replace with function body.
