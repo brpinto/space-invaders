@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bdt7a14w06jn7"]
+
+[ext_resource type="Script" uid="uid://bfi4yendpe8p0" path="res://Scripts/player-beam.gd" id="1_4arsv"]
+[ext_resource type="Texture2D" uid="uid://ch75fn3ac706k" path="res://Assets/Projectile_Player.png" id="1_ucoj0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aiqvf"]
+size = Vector2(2, 8)
+
+[node name="Beam" type="Area2D" unique_id=922420893]
+script = ExtResource("1_4arsv")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=636262759]
+texture = ExtResource("1_ucoj0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1487498561]
+shape = SubResource("RectangleShape2D_aiqvf")
+
+[connection signal="area_shape_entered" from="." to="." method="_on_area_shape_entered"]

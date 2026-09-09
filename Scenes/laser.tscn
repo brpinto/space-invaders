@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cxa3ddsfbmo5c"]
+
+[ext_resource type="Texture2D" uid="uid://clcdrqr6y1gya" path="res://Assets/player.png" id="1_fn5yt"]
+[ext_resource type="Script" uid="uid://bk481e15mrmdd" path="res://Scripts/laser.gd" id="1_mou6w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aiqvf"]
+size = Vector2(26, 16)
+
+[node name="Area2D" type="Area2D" unique_id=624528977]
+script = ExtResource("1_mou6w")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=120622094]
+modulate = Color(0, 1.0000322, 0.260004, 1)
+texture = ExtResource("1_fn5yt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1564346092]
+shape = SubResource("RectangleShape2D_aiqvf")

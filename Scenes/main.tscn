@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://bgi21s1hlbsy8"]
+
+[ext_resource type="Script" uid="uid://bb75j5qrswi2k" path="res://Scripts/main.gd" id="1_8gbba"]
+[ext_resource type="PackedScene" uid="uid://cxa3ddsfbmo5c" path="res://Scenes/laser.tscn" id="1_jjgbg"]
+[ext_resource type="PackedScene" uid="uid://bdt7a14w06jn7" path="res://Scenes/player-projectile.tscn" id="2_bo1nx"]
+[ext_resource type="PackedScene" uid="uid://dbgmqwxeoygqx" path="res://Scenes/shelter.tscn" id="4_jjvhh"]
+
+[node name="Main" type="Node2D" unique_id=386689845]
+script = ExtResource("1_8gbba")
+laser_beams = ExtResource("2_bo1nx")
+
+[node name="Laser" parent="." unique_id=624528977 instance=ExtResource("1_jjgbg")]
+position = Vector2(423, 230)
+
+[node name="Shelter" parent="." unique_id=897828778 instance=ExtResource("4_jjvhh")]
+position = Vector2(191, 136)
+
+[node name="Shelter2" parent="." unique_id=2086152957 instance=ExtResource("4_jjvhh")]
+position = Vector2(287, 136)
+
+[node name="Shelter3" parent="." unique_id=997176217 instance=ExtResource("4_jjvhh")]
+position = Vector2(390, 136)
+
+[node name="Shelter4" parent="." unique_id=2112892711 instance=ExtResource("4_jjvhh")]
+position = Vector2(489, 136)
