@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://dinyqycbn4ple"]
+
+[ext_resource type="Texture2D" uid="uid://4w5qlg8wibhg" path="res://Assets/invaderM2.png" id="1_5v7xj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aiqvf"]
+size = Vector2(12, 8)
+
+[node name="medium_alien" type="Area2D" unique_id=2011536658]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=26413692]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_5v7xj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2098377439]
+shape = SubResource("RectangleShape2D_aiqvf")

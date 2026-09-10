@@ -16,4 +16,4 @@ func _on_area_shape_entered(_area_rid: RID, area: Area2D, _area_shape_index: int
 		var damage_texture = "res://Assets/shelterDamaged_" + str(hits) + ".png"
 		$Sprite2D.texture = load(damage_texture)
 	else:
-		self.queue_free() 
+		self.queue_free()

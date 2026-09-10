@@ -20,9 +20,10 @@ func _input(event: InputEvent) -> void:
 			position += Vector2.LEFT * delta * speed
 		if event.is_action("ui_right"):
 			position += Vector2.RIGHT * delta * speed
+		position.x = clamp(position.x, 13, 211)
 		if event and event.is_action_pressed( "ui_select"):
 			shoot()
-			
+
 func shoot():
 	if can_shoot:
 		var beam_instance = beam.instantiate()

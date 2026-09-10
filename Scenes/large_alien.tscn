@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://dacu4v1uvr3nv"]
+
+[ext_resource type="Texture2D" uid="uid://ceu0rs70yuq5w" path="res://Assets/invaderL1.png" id="1_x760n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aiqvf"]
+size = Vector2(24, 16)
+
+[node name="LargeAlien" type="Area2D" unique_id=2063566071]
+scale = Vector2(0.5, 0.5)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=429907244]
+texture = ExtResource("1_x760n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=823570716]
+shape = SubResource("RectangleShape2D_aiqvf")
