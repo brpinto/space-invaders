@@ -47,16 +47,16 @@ func _process(delta: float) -> void:
 	pass
 
 func move_invaders(delta: float):
-	if can_move:
+	if can_move and self:
 		position.x += direction * delta * speed
-		if position.x >= viewport.x - Globals.invaders_area.x + Globals.large_invader_size.x * $LargeInvader.scale.x - 15:
-			position.x = viewport.x - Globals.invaders_area.x + Globals.large_invader_size.x * $LargeInvader.scale.x - 15
-			position.y += Globals.large_invader_size.y * $LargeInvader.scale.y
+		if position.x >= viewport.x - Globals.invaders_area.x + Globals.large_invader_size.x * Globals.large_invader_scale.x - 15:
+			position.x = viewport.x - Globals.invaders_area.x + Globals.large_invader_size.x * Globals.large_invader_scale.x - 15
+			position.y += Globals.large_invader_size.y * Globals.large_invader_scale.y
 			direction = -1
 		else:
-			if position.x <= Globals.large_invader_size.x * $LargeInvader.scale.x / 2:
-				position.x = Globals.large_invader_size.x * $LargeInvader.scale.x / 2
-				position.y += Globals.large_invader_size.y * $LargeInvader.scale.y
+			if position.x <= Globals.large_invader_size.x * Globals.large_invader_scale.x / 2:
+				position.x = Globals.large_invader_size.x * Globals.large_invader_scale.x / 2
+				position.y += Globals.large_invader_size.y * Globals.large_invader_scale.y
 				direction = 1
 		can_move = false
 		$Timer.start()

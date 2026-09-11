@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://dhqhuhrstvrio"]
+
+[ext_resource type="PackedScene" uid="uid://dbgmqwxeoygqx" path="res://Scenes/shelter.tscn" id="1_4r5va"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0yhpk"]
+size = Vector2(648, 47)
+
+[node name="Shields" type="Area2D" unique_id=1851085708]
+
+[node name="Shelter" parent="." unique_id=897828778 groups=["shelters"] instance=ExtResource("1_4r5va")]
+
+[node name="Shelter2" parent="." unique_id=254553152 groups=["shelters"] instance=ExtResource("1_4r5va")]
+
+[node name="Shelter3" parent="." unique_id=487785533 groups=["shelters"] instance=ExtResource("1_4r5va")]
+
+[node name="Shelter4" parent="." unique_id=2059417581 groups=["shelters"] instance=ExtResource("1_4r5va")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1597370139]
+position = Vector2(324, 0)
+shape = SubResource("RectangleShape2D_0yhpk")

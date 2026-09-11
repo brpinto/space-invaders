@@ -2,10 +2,14 @@ extends Area2D
 
 @export var speed: float = 200.0
 var can_shoot = true
+var viewport: Vector2
 
 var beam = preload("res://Scenes/player-projectile.tscn")
-# Called when the node enters the scene tree for the first time.
+
 func _ready() -> void:
+	viewport = get_viewport().get_visible_rect().size
+	var calculated_scale = viewport.x * 0.06 / ($CollisionShape2D.get_shape().size.x)
+	self.scale = Vector2(calculated_scale, calculated_scale)
 	pass # Replace with function body.
 
 
@@ -20,7 +24,6 @@ func _input(event: InputEvent) -> void:
 			position += Vector2.LEFT * delta * speed
 		if event.is_action("ui_right"):
 			position += Vector2.RIGHT * delta * speed
-		position.x = clamp(position.x, 13, 211)
 		if event and event.is_action_pressed( "ui_select"):
 			shoot()
 

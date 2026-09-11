@@ -1,11 +1,29 @@
 extends Area2D
 
+var viewport: Vector2
 var hits: int = 0
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	viewport = get_viewport().get_visible_rect().size
+	
+	var calculated_scale = viewport.x * 0.06 / ($CollisionShape2D.get_shape().size.x)
+	self.scale = Vector2(calculated_scale, calculated_scale)
+	var shelter_size = $CollisionShape2D.get_shape().size
+	var shelters = get_tree().get_nodes_in_group("shelters")
+	
+	shelters[0].position.x = (shelter_size.x * self.scale.x) / 2
+	#shelters[0].position.y = viewport.y - shelter_size.y * self.scale.y * 4	
+	
+	Globals.shelters_area = Vector2(
+		((shelter_size.x * self.scale.x) * 3) * 3 + (shelter_size.x * self.scale.x),
+		(shelter_size.y * self.scale.x)
+	)
+	
+	var i = 1
+	while i <= 3:
+		shelters[i].position.x = shelters[0].position.x + ((shelter_size.x * self.scale.x) * 3) * i
+		#shelters[i].position.y = viewport.y - shelter_size.y * self.scale.y * 4
+		i += 1
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
 

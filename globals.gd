@@ -1,7 +1,9 @@
 extends Node
 
 var invaders_area: Vector2
+var shelters_area: Vector2
 var large_invader_size: Vector2
+var large_invader_scale: Vector2
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

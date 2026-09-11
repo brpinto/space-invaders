@@ -8,6 +8,7 @@ size = Vector2(26, 16)
 
 [node name="Laser" type="Area2D" unique_id=624528977]
 script = ExtResource("1_mou6w")
+speed = 2000.0
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=120622094]
 modulate = Color(0, 1.0000322, 0.260004, 1)
