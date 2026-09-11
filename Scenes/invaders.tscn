@@ -1,0 +1,131 @@
+[gd_scene format=3 uid="uid://qvgrg0r6j0fb"]
+
+[ext_resource type="PackedScene" uid="uid://daj16hjvvpv35" path="res://Scenes/small_invader.tscn" id="1_6ltc8"]
+[ext_resource type="Script" uid="uid://d3gv47vrwbdkv" path="res://Scripts/invaders.gd" id="1_64y21"]
+[ext_resource type="PackedScene" uid="uid://dinyqycbn4ple" path="res://Scenes/medium_invader.tscn" id="3_64y21"]
+[ext_resource type="PackedScene" uid="uid://dacu4v1uvr3nv" path="res://Scenes/large_invader.tscn" id="4_0bhpn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aiqvf"]
+size = Vector2(694.98, 253.6)
+
+[node name="Invaders" type="Area2D" unique_id=1590375112]
+script = ExtResource("1_64y21")
+speed = 1000
+
+[node name="SmallInvader" parent="." unique_id=187991984 groups=["small_invaders"] instance=ExtResource("1_6ltc8")]
+
+[node name="SmallInvader2" parent="." unique_id=1992385648 groups=["small_invaders"] instance=ExtResource("1_6ltc8")]
+
+[node name="SmallInvader3" parent="." unique_id=901811448 groups=["small_invaders"] instance=ExtResource("1_6ltc8")]
+
+[node name="SmallInvader4" parent="." unique_id=59205499 groups=["small_invaders"] instance=ExtResource("1_6ltc8")]
+
+[node name="SmallInvader5" parent="." unique_id=481050720 groups=["small_invaders"] instance=ExtResource("1_6ltc8")]
+
+[node name="SmallInvader6" parent="." unique_id=1314821037 groups=["small_invaders"] instance=ExtResource("1_6ltc8")]
+
+[node name="SmallInvader7" parent="." unique_id=1616179892 groups=["small_invaders"] instance=ExtResource("1_6ltc8")]
+
+[node name="SmallInvader8" parent="." unique_id=1772764801 groups=["small_invaders"] instance=ExtResource("1_6ltc8")]
+
+[node name="SmallInvader9" parent="." unique_id=1486937043 groups=["small_invaders"] instance=ExtResource("1_6ltc8")]
+
+[node name="SmallInvader10" parent="." unique_id=2119302080 groups=["small_invaders"] instance=ExtResource("1_6ltc8")]
+
+[node name="SmallInvader11" parent="." unique_id=2054510149 groups=["small_invaders"] instance=ExtResource("1_6ltc8")]
+
+[node name="MediumInvader" parent="." unique_id=2011536658 groups=["medium_invaders_1"] instance=ExtResource("3_64y21")]
+
+[node name="MediumInvader2" parent="." unique_id=177273522 groups=["medium_invaders_1"] instance=ExtResource("3_64y21")]
+
+[node name="MediumInvader3" parent="." unique_id=1968710504 groups=["medium_invaders_1"] instance=ExtResource("3_64y21")]
+
+[node name="MediumInvader4" parent="." unique_id=768275500 groups=["medium_invaders_1"] instance=ExtResource("3_64y21")]
+
+[node name="MediumInvader5" parent="." unique_id=365150857 groups=["medium_invaders_1"] instance=ExtResource("3_64y21")]
+
+[node name="MediumInvader6" parent="." unique_id=1767237120 groups=["medium_invaders_1"] instance=ExtResource("3_64y21")]
+
+[node name="MediumInvader7" parent="." unique_id=885798816 groups=["medium_invaders_1"] instance=ExtResource("3_64y21")]
+
+[node name="MediumInvader8" parent="." unique_id=114399794 groups=["medium_invaders_1"] instance=ExtResource("3_64y21")]
+
+[node name="MediumInvader9" parent="." unique_id=1661168974 groups=["medium_invaders_1"] instance=ExtResource("3_64y21")]
+
+[node name="MediumInvader10" parent="." unique_id=1618611295 groups=["medium_invaders_1"] instance=ExtResource("3_64y21")]
+
+[node name="MediumInvader11" parent="." unique_id=323968938 groups=["medium_invaders_1"] instance=ExtResource("3_64y21")]
+
+[node name="MediumInvader12" parent="." unique_id=2132851481 groups=["medium_invaders_2"] instance=ExtResource("3_64y21")]
+
+[node name="MediumInvader13" parent="." unique_id=90428358 groups=["medium_invaders_2"] instance=ExtResource("3_64y21")]
+
+[node name="MediumInvader14" parent="." unique_id=548564716 groups=["medium_invaders_2"] instance=ExtResource("3_64y21")]
+
+[node name="MediumInvader15" parent="." unique_id=379607007 groups=["medium_invaders_2"] instance=ExtResource("3_64y21")]
+
+[node name="MediumInvader16" parent="." unique_id=642326479 groups=["medium_invaders_2"] instance=ExtResource("3_64y21")]
+
+[node name="MediumInvader17" parent="." unique_id=477106377 groups=["medium_invaders_2"] instance=ExtResource("3_64y21")]
+
+[node name="MediumInvader18" parent="." unique_id=467763143 groups=["medium_invaders_2"] instance=ExtResource("3_64y21")]
+
+[node name="MediumInvader19" parent="." unique_id=817656173 groups=["medium_invaders_2"] instance=ExtResource("3_64y21")]
+
+[node name="MediumInvader20" parent="." unique_id=1368161024 groups=["medium_invaders_2"] instance=ExtResource("3_64y21")]
+
+[node name="MediumInvader21" parent="." unique_id=596553926 groups=["medium_invaders_2"] instance=ExtResource("3_64y21")]
+
+[node name="MediumInvader22" parent="." unique_id=687807282 groups=["medium_invaders_2"] instance=ExtResource("3_64y21")]
+
+[node name="LargeInvader" parent="." unique_id=2063566071 groups=["large_invaders_1"] instance=ExtResource("4_0bhpn")]
+
+[node name="LargeInvader2" parent="." unique_id=1658277098 groups=["large_invaders_1"] instance=ExtResource("4_0bhpn")]
+
+[node name="LargeInvader3" parent="." unique_id=321195085 groups=["large_invaders_1"] instance=ExtResource("4_0bhpn")]
+
+[node name="LargeInvader4" parent="." unique_id=656697328 groups=["large_invaders_1"] instance=ExtResource("4_0bhpn")]
+
+[node name="LargeInvader5" parent="." unique_id=1482509001 groups=["large_invaders_1"] instance=ExtResource("4_0bhpn")]
+
+[node name="LargeInvader6" parent="." unique_id=777961991 groups=["large_invaders_1"] instance=ExtResource("4_0bhpn")]
+
+[node name="LargeInvader7" parent="." unique_id=244000940 groups=["large_invaders_1"] instance=ExtResource("4_0bhpn")]
+
+[node name="LargeInvader8" parent="." unique_id=488098532 groups=["large_invaders_1"] instance=ExtResource("4_0bhpn")]
+
+[node name="LargeInvader9" parent="." unique_id=718299836 groups=["large_invaders_1"] instance=ExtResource("4_0bhpn")]
+
+[node name="LargeInvader10" parent="." unique_id=310147370 groups=["large_invaders_1"] instance=ExtResource("4_0bhpn")]
+
+[node name="LargeInvader11" parent="." unique_id=1399085145 groups=["large_invaders_1"] instance=ExtResource("4_0bhpn")]
+
+[node name="LargeInvader12" parent="." unique_id=922706995 groups=["large_invaders_2"] instance=ExtResource("4_0bhpn")]
+
+[node name="LargeInvader13" parent="." unique_id=147700590 groups=["large_invaders_2"] instance=ExtResource("4_0bhpn")]
+
+[node name="LargeInvader14" parent="." unique_id=1445349468 groups=["large_invaders_2"] instance=ExtResource("4_0bhpn")]
+
+[node name="LargeInvader15" parent="." unique_id=223810520 groups=["large_invaders_2"] instance=ExtResource("4_0bhpn")]
+
+[node name="LargeInvader16" parent="." unique_id=1915283864 groups=["large_invaders_2"] instance=ExtResource("4_0bhpn")]
+
+[node name="LargeInvader17" parent="." unique_id=1670039266 groups=["large_invaders_2"] instance=ExtResource("4_0bhpn")]
+
+[node name="LargeInvader18" parent="." unique_id=1297710316 groups=["large_invaders_2"] instance=ExtResource("4_0bhpn")]
+
+[node name="LargeInvader19" parent="." unique_id=1960752006 groups=["large_invaders_2"] instance=ExtResource("4_0bhpn")]
+
+[node name="LargeInvader20" parent="." unique_id=1930625419 groups=["large_invaders_2"] instance=ExtResource("4_0bhpn")]
+
+[node name="LargeInvader21" parent="." unique_id=1204348794 groups=["large_invaders_2"] instance=ExtResource("4_0bhpn")]
+
+[node name="LargeInvader22" parent="." unique_id=572042749 groups=["large_invaders_2"] instance=ExtResource("4_0bhpn")]
+
+[node name="Timer" type="Timer" parent="." unique_id=2032403694]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=383299935]
+position = Vector2(317, 114)
+shape = SubResource("RectangleShape2D_aiqvf")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

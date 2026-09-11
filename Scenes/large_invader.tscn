@@ -1,15 +1,15 @@
 [gd_scene format=3 uid="uid://dacu4v1uvr3nv"]
 
-[ext_resource type="Script" uid="uid://dqlsqitu0ub78" path="res://Scripts/alien.gd" id="1_5eevt"]
-[ext_resource type="Texture2D" uid="uid://ceu0rs70yuq5w" path="res://Assets/invaderL1.png" id="1_x760n"]
-[ext_resource type="Texture2D" uid="uid://c3uspgyre8pu7" path="res://Assets/invaderExplosion.png" id="1_xplej"]
-[ext_resource type="Texture2D" uid="uid://boejlyjp7rqu7" path="res://Assets/invaderL2.png" id="3_5eevt"]
+[ext_resource type="Script" uid="uid://dqlsqitu0ub78" path="res://Scripts/invader.gd" id="1_l1xdp"]
+[ext_resource type="Texture2D" uid="uid://c3uspgyre8pu7" path="res://Assets/invaderExplosion.png" id="2_qs3os"]
+[ext_resource type="Texture2D" uid="uid://ceu0rs70yuq5w" path="res://Assets/invaderL1.png" id="3_nlsn7"]
+[ext_resource type="Texture2D" uid="uid://boejlyjp7rqu7" path="res://Assets/invaderL2.png" id="4_o21h8"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_aiqvf"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_xplej")
+"texture": ExtResource("2_qs3os")
 }],
 "loop": 1,
 "name": &"death",
@@ -17,10 +17,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_x760n")
+"texture": ExtResource("3_nlsn7")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_5eevt")
+"texture": ExtResource("4_o21h8")
 }],
 "loop": 1,
 "name": &"walk",
@@ -30,13 +30,12 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aiqvf"]
 size = Vector2(24, 16)
 
-[node name="LargeAlien" type="Area2D" unique_id=2063566071]
-scale = Vector2(0.5, 0.5)
-script = ExtResource("1_5eevt")
+[node name="LargeInvader" type="Area2D" unique_id=2063566071]
+script = ExtResource("1_l1xdp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=771831513]
 sprite_frames = SubResource("SpriteFrames_aiqvf")
-animation = &"death"
+animation = &"walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=823570716]
 shape = SubResource("RectangleShape2D_aiqvf")

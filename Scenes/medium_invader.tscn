@@ -1,15 +1,15 @@
 [gd_scene format=3 uid="uid://dinyqycbn4ple"]
 
-[ext_resource type="Texture2D" uid="uid://4w5qlg8wibhg" path="res://Assets/invaderM2.png" id="1_5v7xj"]
-[ext_resource type="Texture2D" uid="uid://c3uspgyre8pu7" path="res://Assets/invaderExplosion.png" id="1_t3ba0"]
-[ext_resource type="Script" uid="uid://dqlsqitu0ub78" path="res://Scripts/alien.gd" id="1_udcgt"]
-[ext_resource type="Texture2D" uid="uid://dolo3pld0i72h" path="res://Assets/invaderM1.png" id="3_udcgt"]
+[ext_resource type="Script" uid="uid://dqlsqitu0ub78" path="res://Scripts/invader.gd" id="1_igrxj"]
+[ext_resource type="Texture2D" uid="uid://c3uspgyre8pu7" path="res://Assets/invaderExplosion.png" id="2_adwl8"]
+[ext_resource type="Texture2D" uid="uid://4w5qlg8wibhg" path="res://Assets/invaderM2.png" id="3_u4ox8"]
+[ext_resource type="Texture2D" uid="uid://dolo3pld0i72h" path="res://Assets/invaderM1.png" id="4_gtx4q"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_aiqvf"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_t3ba0")
+"texture": ExtResource("2_adwl8")
 }],
 "loop": 1,
 "name": &"death",
@@ -17,10 +17,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_5v7xj")
+"texture": ExtResource("3_u4ox8")
 }, {
 "duration": 1.0,
-"texture": ExtResource("3_udcgt")
+"texture": ExtResource("4_gtx4q")
 }],
 "loop": 1,
 "name": &"walk",
@@ -28,13 +28,12 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aiqvf"]
-size = Vector2(12, 8)
+size = Vector2(22, 16)
 
-[node name="medium_alien" type="Area2D" unique_id=2011536658]
-script = ExtResource("1_udcgt")
+[node name="MediumInvader" type="Area2D" unique_id=2011536658]
+script = ExtResource("1_igrxj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1832064460]
-scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_aiqvf")
 animation = &"walk"
 
