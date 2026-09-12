@@ -6,7 +6,8 @@ var viewport: Vector2
 func _ready() -> void:
 	viewport = get_viewport().get_visible_rect().size
 	$Invaders.position.x = viewport.x / 2 - (Globals.invaders_area.x / 2) + 15
-	$Invaders.position.y = Globals.invaders_area.y
+	#$Invaders.position.y = (($Laser/CollisionShape2D.get_shape().size.x * $Laser.scale.x) * 11) / 2 + (7 * 15)
+	$Invaders.position.y = 712
 	$Laser.position.x = viewport.x / 2 - ($Laser/CollisionShape2D.get_shape().size.x * $Laser.scale.x) / 2
 	$Laser.position.y = viewport.y - ($Laser/CollisionShape2D.get_shape().size.y * $Laser.scale.y) * 2
 	$Shields.position.x = viewport.x / 2 - (Globals.shelters_area.x / 2) 

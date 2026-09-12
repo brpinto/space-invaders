@@ -1,6 +1,9 @@
 extends Area2D
 
 @export var speed: float = 200.0
+
+signal game_over
+
 var can_shoot = true
 var viewport: Vector2
 
@@ -38,3 +41,8 @@ func shoot():
 func _on_timer_timeout() -> void:
 	can_shoot = true
 	pass # Replace with function body.
+
+
+func _on_area_shape_entered(area_rid: RID, area: Area2D, area_shape_index: int, local_shape_index: int) -> void:
+	if area.name.contains("Invader"):
+		game_over.emit()		

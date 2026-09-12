@@ -4,12 +4,7 @@ var invaders_area: Vector2
 var shelters_area: Vector2
 var large_invader_size: Vector2
 var large_invader_scale: Vector2
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+var large_invader_value: int = 10
+var medium_invader_value: int = 20
+var small_invader_value: int = 30
+var player_score: int = 0
