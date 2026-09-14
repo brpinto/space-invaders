@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var speed: int = 200
+@export var speed: int = 1000
 
 signal shooter_defined
 
@@ -67,7 +67,6 @@ func move_invaders(delta: float):
 
 func _on_timer_timeout() -> void:
 	can_move = true
-
 
 func _on_shoot_timer_timeout() -> void:	
 	var shooters = get_tree().get_nodes_in_group("shooter")

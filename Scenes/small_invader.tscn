@@ -37,6 +37,8 @@ script = ExtResource("1_g7fx2")
 sprite_frames = SubResource("SpriteFrames_aiqvf")
 animation = &"walk"
 
+[node name="MoveTimer" type="Timer" parent="AnimatedSprite2D" unique_id=1756764888]
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=399548182]
 shape = SubResource("RectangleShape2D_aiqvf")
 
@@ -51,5 +53,6 @@ wait_time = 2.0
 autostart = true
 
 [connection signal="area_shape_entered" from="." to="." method="_on_area_shape_entered"]
+[connection signal="timeout" from="AnimatedSprite2D/MoveTimer" to="." method="_on_move_timer_timeout"]
 [connection signal="timeout" from="DeathTimer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]

@@ -7,7 +7,7 @@ var is_last: bool = true
 var bomb = preload("res://Scenes/invader-bomb.tscn")
 
 func _ready() -> void:
-	$AnimatedSprite2D.play("walk")
+	$AnimatedSprite2D/MoveTimer.start()
 	viewport = get_viewport().get_visible_rect().size
 	var calculated_scale = viewport.x * 0.045 / ($CollisionShape2D.get_shape().size.x)
 	var small_calculated_scale = viewport.x * 0.035 / ($CollisionShape2D.get_shape().size.x)
@@ -18,7 +18,7 @@ func _ready() -> void:
 	if self.name.contains("Small"):
 		self.scale = Vector2(small_calculated_scale, small_calculated_scale)
 	self.get_parent().shooter_defined.connect(_on_shooter_defined)
-	
+
 func _process(delta: float) -> void:
 	var raycast = $RayCast2D
 	if raycast.is_colliding():
@@ -26,7 +26,7 @@ func _process(delta: float) -> void:
 		if collider and collider.name.contains("Invader"):
 			is_last = false
 			$ShootTimer.stop()
-			
+
 	else:
 		add_to_group("shooter")
 
@@ -51,3 +51,6 @@ func _on_timer_timeout() -> void:
 func _on_shooter_defined(shooter):
 	if self.name == shooter.name:
 		shoot(shooter)
+
+func _on_move_timer_timeout() -> void:
+	$AnimatedSprite2D.play("walk")
