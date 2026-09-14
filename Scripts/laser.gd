@@ -2,21 +2,18 @@ extends Area2D
 
 @export var speed: float = 200.0
 
-signal game_over
+signal player_dead
 
 var can_shoot = true
+var life: int = 3
 var viewport: Vector2
-
 var beam = preload("res://Scenes/player-projectile.tscn")
 
 func _ready() -> void:
 	viewport = get_viewport().get_visible_rect().size
 	var calculated_scale = viewport.x * 0.06 / ($CollisionShape2D.get_shape().size.x)
 	self.scale = Vector2(calculated_scale, calculated_scale)
-	pass # Replace with function body.
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
 
@@ -33,6 +30,7 @@ func _input(event: InputEvent) -> void:
 func shoot():
 	if can_shoot:
 		var beam_instance = beam.instantiate()
+		beam_instance.name = "Beam" + str(randf())
 		get_parent().add_child(beam_instance)
 		can_shoot = false
 		$Timer.start()
@@ -40,9 +38,16 @@ func shoot():
 
 func _on_timer_timeout() -> void:
 	can_shoot = true
-	pass # Replace with function body.
 
 
 func _on_area_shape_entered(area_rid: RID, area: Area2D, area_shape_index: int, local_shape_index: int) -> void:
 	if area.name.contains("Invader"):
-		game_over.emit()		
+		life_lost()
+	
+func life_lost():
+	life -= 1
+	position.x = viewport.x / 2 - ($CollisionShape2D.get_shape().size.x * scale.x) / 2
+	position.y = viewport.y - ($CollisionShape2D.get_shape().size.y * scale.y) * 2
+	
+	if life == 0:
+		player_dead.emit()

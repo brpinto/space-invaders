@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cxa3ddsfbmo5c" path="res://Scenes/laser.tscn" id="1_jjgbg"]
 [ext_resource type="PackedScene" uid="uid://dhqhuhrstvrio" path="res://Scenes/shelters.tscn" id="4_jjvhh"]
 [ext_resource type="PackedScene" uid="uid://qvgrg0r6j0fb" path="res://Scenes/invaders.tscn" id="4_kry3j"]
+[ext_resource type="PackedScene" uid="uid://b1fuqomuc0g0x" path="res://Scenes/floor.tscn" id="5_kry3j"]
 
 [node name="Main" type="Node2D" unique_id=386689845]
 script = ExtResource("1_8gbba")
@@ -17,3 +18,6 @@ collision_layer = 2
 collision_mask = 2
 
 [node name="Shields" parent="." unique_id=1851085708 instance=ExtResource("4_jjvhh")]
+
+[node name="Floor" parent="." unique_id=1991323940 instance=ExtResource("5_kry3j")]
+position = Vector2(34, 65)

@@ -2,9 +2,9 @@ extends Area2D
 
 signal dead
 
-var viewport
+var viewport: Vector2
+var is_last: bool = true
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$AnimatedSprite2D.play("walk")
 	viewport = get_viewport().get_visible_rect().size
@@ -18,16 +18,23 @@ func _ready() -> void:
 		self.scale = Vector2(small_calculated_scale, small_calculated_scale)
 
 func _process(delta: float) -> void:
-	pass	
+	var raycast = $RayCast2D
+	if raycast.is_colliding():
+		var collider = raycast.get_collider()
+		if collider and collider.name.contains("Invader"):
+			is_last = false
+	else:
+		is_last = true
+	if is_last:
+		#can_shoot() logic => random shoot
+		pass 
 
-func _on_area_shape_entered(_area_rid: RID, area: Area2D, _area_shape_index: int, _local_shape_index: int) -> void:
-	if not area.name == "Beam":
+func _on_area_shape_entered(area_rid: RID, area: Area2D, _area_shape_index: int, _local_shape_index: int) -> void:
+	if not area.name.contains("Beam"):
 		return
 	$AnimatedSprite2D.play("death")
 	if self:
 		$Timer.start(0.5)
-	pass
-
 
 func _on_timer_timeout() -> void:
 	queue_free()

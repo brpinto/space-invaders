@@ -1,16 +1,17 @@
 extends Node2D
 
+@export var speed: int = 200
+
 var can_move: bool = false
 var direction: int = 1
-@export var speed: int = 200
 var viewport: Vector2
 
 func _ready() -> void:
+	viewport = get_viewport().get_visible_rect().size	
 	$Timer.start()
 	Globals.large_invader_size = $LargeInvader/CollisionShape2D.get_shape().size
 	var small_size = $SmallInvader/CollisionShape2D.get_shape().size
 	var medium_size = $MediumInvader/CollisionShape2D.get_shape().size
-	viewport = get_viewport().get_visible_rect().size
 	
 	var small_invaders = get_tree().get_nodes_in_group("small_invaders")
 	var medium_invaders_1 = get_tree().get_nodes_in_group("medium_invaders_1")
@@ -51,13 +52,14 @@ func move_invaders(delta: float):
 		position.x += direction * delta * speed
 		if position.x >= viewport.x - Globals.invaders_area.x + Globals.large_invader_size.x * Globals.large_invader_scale.x - 15:
 			position.x = viewport.x - Globals.invaders_area.x + Globals.large_invader_size.x * Globals.large_invader_scale.x - 15
-			position.y += Globals.large_invader_size.y * Globals.large_invader_scale.y
 			direction = -1
+			position.y += Globals.large_invader_size.y * Globals.large_invader_scale.y
+			
 		else:
 			if position.x <= Globals.large_invader_size.x * Globals.large_invader_scale.x / 2:
 				position.x = Globals.large_invader_size.x * Globals.large_invader_scale.x / 2
-				position.y += Globals.large_invader_size.y * Globals.large_invader_scale.y
 				direction = 1
+				position.y += Globals.large_invader_size.y * Globals.large_invader_scale.y	
 		can_move = false
 		$Timer.start()
 

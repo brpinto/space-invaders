@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://b1fuqomuc0g0x"]
+
+[ext_resource type="Script" uid="uid://bxl8li3rtcq4m" path="res://Scripts/floor.gd" id="1_nvnu3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0yhpk"]
+size = Vector2(20, 4)
+
+[node name="Floor" type="Area2D" unique_id=1991323940]
+script = ExtResource("1_nvnu3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1138122343]
+position = Vector2(10, 2)
+shape = SubResource("RectangleShape2D_0yhpk")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1409025282]
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0, 1, 0.25882354, 1)
+
+[connection signal="area_shape_entered" from="." to="." method="_on_area_shape_entered"]

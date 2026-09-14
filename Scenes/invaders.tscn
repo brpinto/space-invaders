@@ -10,7 +10,7 @@ size = Vector2(694.98, 253.6)
 
 [node name="Invaders" type="Area2D" unique_id=1590375112]
 script = ExtResource("1_64y21")
-speed = 3000
+speed = 1500
 
 [node name="SmallInvader" parent="." unique_id=187991984 groups=["small_invaders"] instance=ExtResource("1_6ltc8")]
 
@@ -126,6 +126,7 @@ speed = 3000
 wait_time = 0.3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=383299935]
+visible = false
 position = Vector2(317, 114)
 shape = SubResource("RectangleShape2D_aiqvf")
 

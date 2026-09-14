@@ -3,12 +3,7 @@ extends Area2D
 @export var beam_speed: int = 800
  
 signal shelter_fired
-# 1. trouver un moyen de free le laser, pour pas créer 1000 instances
-# par exemple quand il arrive aux limites du terrain
 
-# 2. trouver un moyen de limiter le nombre de rayon (normalement 3)
-
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	add_to_group("beams")
 	var laser = get_parent().get_node("Laser")
