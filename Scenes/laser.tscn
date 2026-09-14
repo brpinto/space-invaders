@@ -2,6 +2,26 @@
 
 [ext_resource type="Texture2D" uid="uid://clcdrqr6y1gya" path="res://Assets/player.png" id="1_fn5yt"]
 [ext_resource type="Script" uid="uid://bk481e15mrmdd" path="res://Scripts/laser.gd" id="1_mou6w"]
+[ext_resource type="Texture2D" uid="uid://cx81kpion5jyg" path="res://Assets/laser_explosion.png" id="2_3pc01"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0yhpk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_3pc01")
+}],
+"loop": 1,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_fn5yt")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aiqvf"]
 size = Vector2(26, 16)
@@ -10,9 +30,9 @@ size = Vector2(26, 16)
 script = ExtResource("1_mou6w")
 speed = 1200.0
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=120622094]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=759438878]
 modulate = Color(0, 1.0000322, 0.260004, 1)
-texture = ExtResource("1_fn5yt")
+sprite_frames = SubResource("SpriteFrames_0yhpk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1564346092]
 shape = SubResource("RectangleShape2D_aiqvf")
@@ -21,5 +41,10 @@ shape = SubResource("RectangleShape2D_aiqvf")
 wait_time = 0.5
 one_shot = true
 
+[node name="DeathTimer" type="Timer" parent="." unique_id=945777345]
+wait_time = 1.5
+one_shot = true
+
 [connection signal="area_shape_entered" from="." to="." method="_on_area_shape_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="DeathTimer" to="." method="_on_death_timer_timeout"]

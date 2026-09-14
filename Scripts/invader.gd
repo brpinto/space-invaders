@@ -39,6 +39,7 @@ func shoot(shooter):
 func _on_area_shape_entered(area_rid: RID, area: Area2D, _area_shape_index: int, _local_shape_index: int) -> void:
 	if not area.name.contains("Beam"):
 		return
+	$AnimatedSprite2D/MoveTimer.stop()
 	$AnimatedSprite2D.play("death")
 	if self:
 		$DeathTimer.start(0.5)
