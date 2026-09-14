@@ -1,7 +1,5 @@
 extends Area2D
 
-signal dead
-
 var viewport: Vector2
 var is_last: bool = true
 var bomb = preload("res://Scenes/invader-bomb.tscn")
@@ -19,7 +17,7 @@ func _ready() -> void:
 		self.scale = Vector2(small_calculated_scale, small_calculated_scale)
 	self.get_parent().shooter_defined.connect(_on_shooter_defined)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	var raycast = $RayCast2D
 	if raycast.is_colliding():
 		var collider = raycast.get_collider()
@@ -36,7 +34,7 @@ func shoot(shooter):
 	bomb_instance.position = shooter.global_position
 	get_parent().get_parent().add_child(bomb_instance)
 
-func _on_area_shape_entered(area_rid: RID, area: Area2D, _area_shape_index: int, _local_shape_index: int) -> void:
+func _on_area_shape_entered(_area_rid: RID, area: Area2D, _area_shape_index: int, _local_shape_index: int) -> void:
 	if not area.name.contains("Beam"):
 		return
 	$AnimatedSprite2D/MoveTimer.stop()

@@ -16,9 +16,6 @@ func _ready() -> void:
 	var calculated_scale = viewport.x * 0.06 / ($CollisionShape2D.get_shape().size.x)
 	self.scale = Vector2(calculated_scale, calculated_scale)
 
-func _process(delta: float) -> void:
-	pass
-
 func _input(event: InputEvent) -> void:
 	var delta = get_process_delta_time()
 	if event and is_alive:
@@ -41,7 +38,6 @@ func shoot():
 
 func _on_timer_timeout() -> void:
 	can_shoot = true
-
 
 func _on_area_shape_entered(_area_rid: RID, area: Area2D, _area_shape_index: int, _local_shape_index: int) -> void:
 	if area.name.contains("Beam"):

@@ -122,7 +122,6 @@ script = ExtResource("1_64y21")
 [node name="LargeInvader22" parent="." unique_id=572042749 groups=["large_invaders_2"] instance=ExtResource("4_0bhpn")]
 
 [node name="MoveTimer" type="Timer" parent="." unique_id=2032403694]
-one_shot = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=383299935]
 visible = false

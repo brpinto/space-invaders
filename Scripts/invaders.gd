@@ -7,9 +7,11 @@ signal shooter_defined
 var can_move: bool = false
 var direction: int = 1
 var viewport: Vector2
+var invaders_count: int
 
 func _ready() -> void:
 	viewport = get_viewport().get_visible_rect().size	
+	invaders_count =  get_child_count() - 3
 	$MoveTimer.start()
 	Globals.large_invader_size = $LargeInvader/CollisionShape2D.get_shape().size
 	var small_size = $SmallInvader/CollisionShape2D.get_shape().size
@@ -47,8 +49,18 @@ func _ready() -> void:
 	
 func _process(delta: float) -> void:
 	move_invaders(delta)
-	pass
-
+	
+	var invaders_left = get_child_count() - 3
+	
+	if invaders_count - invaders_left == roundi(invaders_count / 3):
+		$MoveTimer.wait_time = 0.5
+		$ShootTimer.wait_time = 1.5
+		speed = 1500
+	elif invaders_count - invaders_left == roundi(invaders_count / 2):
+		$MoveTimer.wait_time = 0.3
+		$ShootTimer.wait_time = 1.0
+		speed = 2000
+		
 func move_invaders(delta: float):
 	if can_move and self:
 		position.x += direction * delta * speed
@@ -73,6 +85,6 @@ func _on_shoot_timer_timeout() -> void:
 	var shooters_max = shooters.size() - 1
 	var shooter_index = randi_range(0, shooters_max)
 	
-	var should_shoot = randi_range(0, 1)
-	if should_shoot == 1:
-		shooter_defined.emit(shooters[shooter_index])
+	#var should_shoot = randi_range(0, 1)
+	#if should_shoot == 1:
+	shooter_defined.emit(shooters[shooter_index])
