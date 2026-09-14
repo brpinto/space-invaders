@@ -10,6 +10,7 @@ size = Vector2(694.98, 253.6)
 
 [node name="Invaders" type="Area2D" unique_id=1590375112]
 script = ExtResource("1_64y21")
+speed = 1000
 
 [node name="SmallInvader" parent="." unique_id=187991984 groups=["small_invaders"] instance=ExtResource("1_6ltc8")]
 
@@ -130,4 +131,9 @@ visible = false
 position = Vector2(317, 114)
 shape = SubResource("RectangleShape2D_aiqvf")
 
+[node name="ShootTimer" type="Timer" parent="." unique_id=1975576293]
+wait_time = 2.0
+autostart = true
+
 [connection signal="timeout" from="MoveTimer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="ShootTimer" to="." method="_on_shoot_timer_timeout"]

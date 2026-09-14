@@ -2,6 +2,8 @@ extends Node2D
 
 @export var speed: int = 200
 
+signal shooter_defined
+
 var can_move: bool = false
 var direction: int = 1
 var viewport: Vector2
@@ -65,3 +67,13 @@ func move_invaders(delta: float):
 
 func _on_timer_timeout() -> void:
 	can_move = true
+
+
+func _on_shoot_timer_timeout() -> void:	
+	var shooters = get_tree().get_nodes_in_group("shooter")
+	var shooters_max = shooters.size() - 1
+	var shooter_index = randi_range(0, shooters_max)
+	
+	var should_shoot = randi_range(0, 1)
+	if should_shoot == 1:
+		shooter_defined.emit(shooters[shooter_index])

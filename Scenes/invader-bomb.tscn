@@ -7,8 +7,9 @@
 size = Vector2(2, 8)
 
 [node name="InvaderBomb" type="Area2D" unique_id=922420893]
-scale = Vector2(1.5, 1.5)
+scale = Vector2(2, 2)
 script = ExtResource("1_ldfa2")
+bomb_speed = 200
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=636262759]
 texture = ExtResource("2_usxij")

@@ -17,7 +17,8 @@ func _ready() -> void:
 		Globals.large_invader_scale = self.scale
 	if self.name.contains("Small"):
 		self.scale = Vector2(small_calculated_scale, small_calculated_scale)
-
+	self.get_parent().shooter_defined.connect(_on_shooter_defined)
+	
 func _process(delta: float) -> void:
 	var raycast = $RayCast2D
 	if raycast.is_colliding():
@@ -25,15 +26,16 @@ func _process(delta: float) -> void:
 		if collider and collider.name.contains("Invader"):
 			is_last = false
 			$ShootTimer.stop()
+			
 	else:
-		is_last = true
+		add_to_group("shooter")
 
-func shoot():
+func shoot(shooter):
 	var bomb_instance = bomb.instantiate()
 	bomb_instance.name = "Bomb" + str(randf())
-	add_child(bomb_instance)
-	
-	
+	bomb_instance.position = shooter.global_position
+	get_parent().get_parent().add_child(bomb_instance)
+
 func _on_area_shape_entered(area_rid: RID, area: Area2D, _area_shape_index: int, _local_shape_index: int) -> void:
 	if not area.name.contains("Beam"):
 		return
@@ -43,8 +45,9 @@ func _on_area_shape_entered(area_rid: RID, area: Area2D, _area_shape_index: int,
 
 func _on_timer_timeout() -> void:
 	queue_free()
+	if self.is_in_group("shooter"):
+		remove_from_group("shooter")
 
-func _on_shoot_timer_timeout() -> void:
-	var should_shoot = randi_range(0, 1)
-	if should_shoot == 1:
-		shoot()
+func _on_shooter_defined(shooter):
+	if self.name == shooter.name:
+		shoot(shooter)
