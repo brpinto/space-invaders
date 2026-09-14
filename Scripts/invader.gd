@@ -4,6 +4,7 @@ signal dead
 
 var viewport: Vector2
 var is_last: bool = true
+var bomb = preload("res://Scenes/invader-bomb.tscn")
 
 func _ready() -> void:
 	$AnimatedSprite2D.play("walk")
@@ -23,18 +24,27 @@ func _process(delta: float) -> void:
 		var collider = raycast.get_collider()
 		if collider and collider.name.contains("Invader"):
 			is_last = false
+			$ShootTimer.stop()
 	else:
 		is_last = true
-	if is_last:
-		#can_shoot() logic => random shoot
-		pass 
 
+func shoot():
+	var bomb_instance = bomb.instantiate()
+	bomb_instance.name = "Bomb" + str(randf())
+	add_child(bomb_instance)
+	
+	
 func _on_area_shape_entered(area_rid: RID, area: Area2D, _area_shape_index: int, _local_shape_index: int) -> void:
 	if not area.name.contains("Beam"):
 		return
 	$AnimatedSprite2D.play("death")
 	if self:
-		$Timer.start(0.5)
+		$DeathTimer.start(0.5)
 
 func _on_timer_timeout() -> void:
 	queue_free()
+
+func _on_shoot_timer_timeout() -> void:
+	var should_shoot = randi_range(0, 1)
+	if should_shoot == 1:
+		shoot()

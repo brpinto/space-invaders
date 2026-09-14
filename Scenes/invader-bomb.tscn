@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://kv73w62hlfvi"]
+
+[ext_resource type="Script" uid="uid://dp1r3f3jxnhq3" path="res://Scripts/invader-bomb.gd" id="1_ldfa2"]
+[ext_resource type="Texture2D" uid="uid://ch75fn3ac706k" path="res://Assets/Projectile_Player.png" id="2_usxij"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aiqvf"]
+size = Vector2(2, 8)
+
+[node name="InvaderBomb" type="Area2D" unique_id=922420893]
+scale = Vector2(1.5, 1.5)
+script = ExtResource("1_ldfa2")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=636262759]
+texture = ExtResource("2_usxij")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1487498561]
+shape = SubResource("RectangleShape2D_aiqvf")
+
+[connection signal="area_shape_entered" from="." to="." method="_on_area_shape_entered"]

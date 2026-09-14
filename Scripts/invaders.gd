@@ -8,7 +8,7 @@ var viewport: Vector2
 
 func _ready() -> void:
 	viewport = get_viewport().get_visible_rect().size	
-	$Timer.start()
+	$MoveTimer.start()
 	Globals.large_invader_size = $LargeInvader/CollisionShape2D.get_shape().size
 	var small_size = $SmallInvader/CollisionShape2D.get_shape().size
 	var medium_size = $MediumInvader/CollisionShape2D.get_shape().size
@@ -61,7 +61,7 @@ func move_invaders(delta: float):
 				direction = 1
 				position.y += Globals.large_invader_size.y * Globals.large_invader_scale.y	
 		can_move = false
-		$Timer.start()
+		$MoveTimer.start()
 
 func _on_timer_timeout() -> void:
 	can_move = true
