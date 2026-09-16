@@ -124,9 +124,9 @@ script = ExtResource("1_64y21")
 [node name="MoveTimer" type="Timer" parent="." unique_id=2032403694]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=383299935]
-visible = false
 position = Vector2(317, 114)
 shape = SubResource("RectangleShape2D_aiqvf")
+disabled = true
 
 [node name="ShootTimer" type="Timer" parent="." unique_id=1975576293]
 wait_time = 2.0

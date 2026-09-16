@@ -3,13 +3,17 @@ extends Node2D
 @export var speed: int = 1000
 
 signal shooter_defined
+signal invaders_cleared
 
 var can_move: bool = false
 var direction: int = 1
 var viewport: Vector2
+var invaders_count: int
 
 func _ready() -> void:
 	viewport = get_viewport().get_visible_rect().size
+	invaders_count = self.get_child_count() - 3
+
 	$MoveTimer.start()
 	Globals.large_invader_size = $LargeInvader/CollisionShape2D.get_shape().size
 	var small_size = $SmallInvader/CollisionShape2D.get_shape().size
@@ -47,6 +51,7 @@ func _ready() -> void:
 	
 func _process(delta: float) -> void:
 	move_invaders(delta)
+	invasion_setup()
 		
 func move_invaders(delta: float):
 	if can_move and self:
@@ -78,3 +83,19 @@ func _on_shoot_timer_timeout() -> void:
 	#if should_shoot == 1:
 	if shooters_max > 0:
 		shooter_defined.emit(shooters[shooter_index])
+
+func invasion_setup():
+	var invaders_left = get_child_count() - 3
+	
+	if invaders_count - invaders_left == roundi(invaders_count / 3):
+		$MoveTimer.wait_time = 0.5
+		$ShootTimer.wait_time = 1.5
+		self.speed = 1500
+	elif invaders_count - invaders_left == roundi(invaders_count / 2):
+		$MoveTimer.wait_time = 0.3
+		$ShootTimer.wait_time = 1.0
+		self.speed = 2000
+	
+	if invaders_left == 0:
+		self.queue_free()
+		invaders_cleared.emit()
