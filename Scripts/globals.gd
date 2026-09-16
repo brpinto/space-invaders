@@ -9,5 +9,6 @@ var medium_invader_value: int = 20
 var small_invader_value: int = 30
 var player_score: int = 0
 var level: int = 0
+var state = 0
 
 var viewport: Vector2

@@ -1,7 +1,6 @@
 extends Area2D
 
 var viewport: Vector2
-var is_last: bool = true
 var bomb = preload("res://Scenes/invader-bomb.tscn")
 
 func _ready() -> void:
@@ -22,9 +21,7 @@ func _process(_delta: float) -> void:
 	if raycast.is_colliding():
 		var collider = raycast.get_collider()
 		if collider and collider.name.contains("Invader"):
-			is_last = false
 			$ShootTimer.stop()
-
 	else:
 		add_to_group("shooter")
 

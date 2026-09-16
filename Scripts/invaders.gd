@@ -25,6 +25,7 @@ func _ready() -> void:
 	var large_invaders_1 = get_tree().get_nodes_in_group("large_invaders_1")
 	var large_invaders_2 = get_tree().get_nodes_in_group("large_invaders_2")
 	
+	
 	Globals.invaders_area = Vector2(
 		(Globals.large_invader_size.x * $LargeInvader.scale.x + (Globals.large_invader_size.x * $LargeInvader.scale.x) * 0.3) * 11,
 		(Globals.large_invader_size.y * $LargeInvader.scale.y + Globals.large_invader_size.y + 15) * 4

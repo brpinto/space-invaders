@@ -5,13 +5,15 @@ signal invaders_cleared
 var invaders_count: int
 var invaders_init_pos: Vector2
 var invaders_instance
+var menu_instance
 var invaders = preload("res://Scenes/invaders.tscn")
+var menu = preload("res://Scenes/menu.tscn")
 
 var viewport: Vector2
 
 func _ready() -> void:
 	viewport = get_viewport().get_visible_rect().size
-	init_invaders()
+	init_menu()
 
 	$Laser.position.x = viewport.x / 2 - ($Laser/CollisionShape2D.get_shape().size.x * $Laser.scale.x) / 2
 	$Laser.position.y = viewport.y - ($Laser/CollisionShape2D.get_shape().size.y * $Laser.scale.y) * 2
@@ -24,7 +26,10 @@ func _ready() -> void:
 	$Laser.player_dead.connect(game_over, CONNECT_ONE_SHOT)
 
 func game_over():
-	print("T'ES MORT")
+	Globals.state = 1
+	invaders_instance.free()
+	init_menu()
+	
 	
 func init_invaders():
 	invaders_instance = invaders.instantiate()
@@ -41,4 +46,15 @@ func init_invaders():
 
 func _on_invaders_cleared() -> void:
 	Globals.level += 1
+	init_invaders()
+
+func init_menu(game_over_state = false):
+	menu_instance = menu.instantiate()
+	menu_instance.position = viewport / 2
+	
+	menu_instance.play.connect(_on_play_pressed, CONNECT_ONE_SHOT)
+	add_child(menu_instance)
+	
+func _on_play_pressed():
+	menu_instance.queue_free()
 	init_invaders()

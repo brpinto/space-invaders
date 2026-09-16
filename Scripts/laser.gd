@@ -51,10 +51,10 @@ func life_lost():
 	life -= 1
 	
 	if life == 0:
+		is_alive = false
 		player_dead.emit()
 	else:
 		$DeathTimer.start()
-
 
 func _on_death_timer_timeout() -> void:
 	position.x = viewport.x / 2 - ($CollisionShape2D.get_shape().size.x * scale.x) / 2
